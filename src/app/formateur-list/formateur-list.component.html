@@ -1,0 +1,40 @@
+<div style="min-width: 100%;min-height: 200%;background-image: url('../../assets/img/background.jpg');">
+<br>
+<div class="container">
+    <button type="button" [routerLink]="['/admin']" class="btn btn-link">Trainers List</button> /
+    <button type="button" [routerLink]="['/apprenant']" class="btn btn-link">Apprenant List</button> /
+    <button type="button" [routerLink]="['/formation']" class="btn btn-link">Training Sessions</button>
+    <br><br>
+    <h2 style="color: aliceblue;">Trainers List</h2>
+   
+<button (click)="goToCreateFormateur()" class="btn btn-outline-info" style="float: right;"><i class="bi bi-person-plus" ></i> Add Trainer </button>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+<table class = "table table-striped">
+    <thead>
+        <tr style="color:aqua">
+            <th> ID</th>
+            <th> First Name </th>
+            <th> Last Name </th>
+            <th> Email </th>
+            <th>Password</th>
+            <th>Actions</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let trainers of formateurs" style="color:beige">
+            <td>{{ trainers.id}}</td>
+            <td> {{ trainers.nom }} </td>
+            <td> {{ trainers.prenom }} </td>
+            <td> {{ trainers.email }} </td>
+            <td type="password"> {{trainers.mdp}}</td>
+            <td>
+                <button (click) = "updateFormateur(trainers.id)" class = "btn btn-outline-primary"> Update</button>
+                <button (click) = "deleteFormateur(trainers.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+                <!--<button (click) = "employeeDetails(employee.id)" class = "btn btn-info" style="margin-left: 10px"> View</button>
+                --></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</div>

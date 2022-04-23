@@ -1,0 +1,32 @@
+<div class="col-md-6 offset-md-3">
+    <h3> Update Trainer </h3>
+    <form (ngSubmit) = "onSubmit()">
+    
+        <div class="form-group">
+            <label> First Name</label>
+            <input type="text" class ="form-control" id = "firstName"
+                [(ngModel)] = "formateur.nom" name = "firstName">
+        </div>
+    
+        <div class="form-group">
+            <label> Last Name</label>
+            <input type="text" class ="form-control" id = "lastName"
+                [(ngModel)] = "formateur.prenom" name = "lastName">
+        </div>
+    
+        <div class="form-group">
+            <label> Email </label>
+            <input type="text" class ="form-control" id = "emailId"
+                [(ngModel)] = "formateur.email" name = "emailId">
+        </div>
+
+        <div class="form-group">
+            <label>  Password </label>
+            <input type="text" class ="form-control" id = "mdp"
+                [(ngModel)] = "formateur.mdp" name = "mdp">
+        </div>
+    
+        <button class = "btn btn-success" type ="submit">Submit</button>
+    
+    </form>
+    </div> 

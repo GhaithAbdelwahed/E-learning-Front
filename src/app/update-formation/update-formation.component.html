@@ -1,0 +1,30 @@
+<br>
+<div class="col-md-6 offset-md-3">
+    <h3> Update Courses </h3>
+    <form  #createformation="ngForm" (ngSubmit)="onSubmit()">
+    
+        <div class="form-group">
+            <label> Courses Name</label>
+            <input type="text" class="form-control" placeholder="Enter The Course's Name" name="nom" [(ngModel)]="formation.formationName" #nom="ngModel"
+          required [class.is-invalid]="nom.invalid && nom.touched ">
+
+        </div>
+    
+        <div class="form-group">
+            <label> Start Date </label>
+            <input type="date" class="form-control" placeholder="Enter The Start Date" name="date" [(ngModel)]="formation.date_debut" #date="ngModel"
+            required [class.is-invalid]="date.invalid && date.touched ">
+        </div>
+    
+        <div class="form-group">
+            <label> End Date </label>
+            <input type="date" class="form-control"  placeholder="Enter The End Date " name="date" [(ngModel)]="formation.date_fin" required  #date="ngModel"
+            [class.is-invalid]="date.invalid && date.touched">
+        </div>
+
+
+        <br>
+        <button [disabled]="createformation.form.invalid" class = "btn btn-success" type ="submit">Submit</button>
+    
+    </form>
+    </div> 

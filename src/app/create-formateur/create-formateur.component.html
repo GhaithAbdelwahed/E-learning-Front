@@ -1,0 +1,41 @@
+<br><br>
+<div class="col-md-6 offset-md-3">
+    <h3> Create Formateur </h3>
+    <form #createform="ngForm" (ngSubmit)="saveFormateur()"></form>
+    <form (ngSubmit) = "onSubmit()">
+    
+        <div class="form-group">
+            <label> First Name</label>
+            <input type="text" class="form-control" placeholder="Enter your Trainer's Name" name="nom" [(ngModel)]="formateur.nom" #nom="ngModel"
+          required [class.is-invalid]="nom.invalid && nom.touched ">
+
+        </div>
+    
+        <div class="form-group">
+            <label> Last Name</label>
+            <input type="text" class="form-control" placeholder="Enter Your Trainer's Last Name" name="prenom" [(ngModel)]="formateur.prenom" #prenom="ngModel"
+            required [class.is-invalid]="prenom.invalid && prenom.touched ">
+        </div>
+    
+        <div class="form-group">
+            <label> Email </label>
+            <input type="email" class="form-control"  placeholder="Enter Your trainers's email" name="email" [(ngModel)]="formateur.email" required  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  #email="ngModel"
+            [class.is-invalid]="email.invalid && email.touched">
+            <div *ngIf="email.errors && (email.invalid && email.touched)">
+                <small class="text-danger" *ngIf="email.errors['required']"> Email is required field </small>
+                <small class="text-danger" *ngIf="email.errors['pattern']"> Enter the valid email </small>
+            </div>
+        </div>
+        <div class="form-group">
+        <label for="pwd">Password:</label>
+          <input type="password" class="form-control"  placeholder="Enter your trainer's password" name="mdp" [(ngModel)]="formateur.mdp" required #password="ngModel"
+          [class.is-invalid]="password.invalid && password.touched"
+          > 
+          <small class="text-danger" [class.d-none]="password.valid || password.untouched">password is required field</small>
+        </div>
+
+        <br>
+        <button [disabled]="createform.form.invalid" class = "btn btn-success" type ="submit">Submit</button>
+    
+    </form>
+    </div> 
